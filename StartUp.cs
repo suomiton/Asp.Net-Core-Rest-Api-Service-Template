@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Driver;
 using RestService.DAL;
 
 namespace RestService
@@ -24,15 +23,17 @@ namespace RestService
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseStatusCodePages();
+            app.UseMvcWithDefaultRoute();
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();            
             services.AddSingleton<AppSettings>(this._appSettings);
             services.AddSingleton<IDocumentContext, DocumentContext>();
             services.AddScoped<IDocumentCollection, DocumentCollection>();
-            services.AddScoped<IDocumentService, DocumentService>();
-            services.AddMvc();
+            services.AddScoped<IDocumentService, DocumentService>();            
         }
     }
 }

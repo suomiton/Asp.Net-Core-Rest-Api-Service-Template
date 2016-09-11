@@ -6,7 +6,8 @@ namespace RestService.Controllers
     [Route("api/person")]
     public sealed class PersonApiController : Controller
     {
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public string Get(int? id)
         {
             return "value";
         }
