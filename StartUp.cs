@@ -9,21 +9,17 @@ namespace RestService
 {
     public class Startup
     {
-        private readonly AppSettings _appSettings;
-        private readonly IMongoDatabase _mongoDatabase;
+        private readonly AppSettings _appSettings;        
 
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("AppSettings.json", optional: false, reloadOnChange: true);
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
             var configuration = builder.Build();
 
             this._appSettings = new AppSettings();
-            configuration.Bind(this._appSettings);
-
-            var client = new MongoDB.Driver.MongoClient(this._appSettings.ConnectionString);
-            this._mongoDatabase = client.GetDatabase(this._appSettings.DbName);
+            configuration.Bind(this._appSettings);            
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
