@@ -4,8 +4,12 @@ using RestService.Models;
 
 namespace RestService.DAL
 {
-    interface IDocumentService
+    public interface IDocumentService
     {
-        Task<IList<Person>> getDocuments();
+        Task<IList<Person>> GetPersons();
+        Task<Person> GetPerson(int id);
+        Task InsertPerson(Person person);
+        Task UpdatePerson(Person person);
+        Task DeletePerson(int id);
     }
 }

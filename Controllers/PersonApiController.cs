@@ -1,33 +1,50 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RestService.DAL;
+using RestService.Models;
 
 namespace RestService.Controllers
 {
     [Route("api/person")]
     public sealed class PersonApiController : Controller
     {
-        [HttpGet("{id}")]
-        public string Get(int? id)
+        public readonly IDocumentService _documentService;
+
+        public PersonApiController(IDocumentService documentService)
         {
-            return "value";
+            this._documentService = documentService;
+        }
+
+        [HttpGet()]
+        public async Task<IList<Person>> Get()
+        {
+            return await this._documentService.GetPersons();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<Person> Get(int id)
+        {
+            return await this._documentService.GetPerson(id);
         }
 
         // POST: api/Entry
-        public void Post([FromBody]string value)
+        public async Task Post([FromBody]Person value)
         {
-            throw new NotImplementedException();
+            await this._documentService.InsertPerson(value);
         }
 
         // PUT: api/Entry/5
-        public void Put(int id, [FromBody]string value)
+        public async Task Put(int id, [FromBody]Person value)
         {
-            throw new NotImplementedException();
+            await this._documentService.UpdatePerson(value);
         }
 
         // DELETE: api/Entry/5
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            await this._documentService.DeletePerson(id);
         }
     }
 }
