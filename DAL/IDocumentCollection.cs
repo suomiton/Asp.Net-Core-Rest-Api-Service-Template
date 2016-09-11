@@ -3,7 +3,7 @@ using RestService.Models;
 
 namespace RestService.DAL
 {
-    public interface IDocumentDb
+    public interface IDocumentCollection
     {
         IMongoCollection<Person> Persons { get; }
     }

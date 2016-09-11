@@ -34,7 +34,7 @@ namespace RestService
         {
             services.AddSingleton<AppSettings>(this._appSettings);
             services.AddSingleton<IDocumentContext, DocumentContext>();
-            services.AddScoped<IDocumentDb, DocumentDb>();
+            services.AddScoped<IDocumentCollection, DocumentCollection>();
             services.AddScoped<IDocumentService, DocumentService>();
             services.AddMvc();
         }

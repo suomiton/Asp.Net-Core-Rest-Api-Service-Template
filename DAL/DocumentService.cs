@@ -8,9 +8,9 @@ namespace RestService.DAL
 {
     public sealed class DocumentService : IDocumentService
     {
-        private readonly IDocumentDb _db;
+        private readonly IDocumentCollection _db;
 
-        public DocumentService (IDocumentDb db)
+        public DocumentService (IDocumentCollection db)
         {          
             this._db = db;
         }

@@ -1,10 +1,9 @@
-using System;
 using MongoDB.Driver;
 using RestService.Models;
 
 namespace RestService.DAL
 {
-    public sealed class DocumentDb : ContextBase, IDocumentDb
+    public sealed class DocumentCollection : ContextBase, IDocumentCollection
     {        
         public IMongoCollection<Person> Persons
         {
@@ -14,7 +13,7 @@ namespace RestService.DAL
             }
         }
 
-        public DocumentDb (IDocumentContext context) : base(context.Documents)
+        public DocumentCollection (IDocumentContext context) : base(context.Documents)
         {          
             ;
         }        

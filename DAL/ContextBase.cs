@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace RestService.DAL
 {
-    public class ContextBase
+    public abstract class ContextBase
     {
         protected readonly IMongoDatabase _db;
 
