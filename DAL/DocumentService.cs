@@ -16,31 +16,31 @@ namespace RestService.DAL
             this._db = db;
         }
 
-        public async Task DeletePerson(int id)
+        public async Task DeleteRestaurant(int id)
         {
-            await this._db.Persons.DeleteOneAsync( o => o.Id == id);
+            await this._db.Restaurants.DeleteOneAsync( o => o.Id == id);
         }
 
-        public async Task<Person> GetPerson(int id)
+        public async Task<Restaurant> GetRestaurant(int id)
         {            
-            return await this._db.Persons
+            return await this._db.Restaurants
                 .Find(o => o.Id == id).SingleOrDefaultAsync();
         }
 
-        public async Task<IList<Person>> GetPersons()
+        public async Task<IList<Restaurant>> GetRestaurants()
         {
-            return await this._db.Persons.AsQueryable().ToListAsync();
+            return await this._db.Restaurants.AsQueryable().ToListAsync();
         }
 
-        public async Task InsertPerson(Person person)
+        public async Task InsertRestaurant(Restaurant restaurant)
         {
-            await this._db.Persons.InsertOneAsync(person);
+            await this._db.Restaurants.InsertOneAsync(restaurant);
         }
 
-        public async Task UpdatePerson(Person person)
+        public async Task UpdateRestaurant(Restaurant restaurant)
         {
-            var updateObj = await this.GetPerson(person.Id);
-            await this._db.Persons.UpdateOneAsync(updateObj.ToBsonDocument(), person.ToBsonDocument());
+            var updateObj = await this.GetRestaurant(restaurant.Id);
+            await this._db.Restaurants.UpdateOneAsync(updateObj.ToBsonDocument(), restaurant.ToBsonDocument());
         }
     }
 }

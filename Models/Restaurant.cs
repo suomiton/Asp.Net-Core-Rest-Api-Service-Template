@@ -1,6 +1,6 @@
 namespace RestService.Models
 {
-    public sealed class Person
+    public sealed class Restaurant
     {
         public int Id { get; set; }
         public string Name { get; set; }

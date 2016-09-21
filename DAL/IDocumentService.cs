@@ -6,10 +6,10 @@ namespace RestService.DAL
 {
     public interface IDocumentService
     {
-        Task<IList<Person>> GetPersons();
-        Task<Person> GetPerson(int id);
-        Task InsertPerson(Person person);
-        Task UpdatePerson(Person person);
-        Task DeletePerson(int id);
+        Task<IList<Restaurant>> GetRestaurants();
+        Task<Restaurant> GetRestaurant(int id);
+        Task InsertRestaurant(Restaurant person);
+        Task UpdateRestaurant(Restaurant person);
+        Task DeleteRestaurant(int id);
     }
 }

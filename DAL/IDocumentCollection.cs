@@ -5,6 +5,6 @@ namespace RestService.DAL
 {
     public interface IDocumentCollection
     {
-        IMongoCollection<Person> Persons { get; }
+        IMongoCollection<Restaurant> Restaurants { get; }
     }
 }

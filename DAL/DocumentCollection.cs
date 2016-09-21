@@ -5,11 +5,11 @@ namespace RestService.DAL
 {
     public sealed class DocumentCollection : ContextBase, IDocumentCollection
     {        
-        public IMongoCollection<Person> Persons
+        public IMongoCollection<Restaurant> Restaurants
         {
             get
             {
-                return base._db.GetCollection<Person>("Person");
+                return base._db.GetCollection<Restaurant>("restaurant");
             }
         }
 
