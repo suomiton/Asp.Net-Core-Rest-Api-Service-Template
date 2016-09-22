@@ -1,3 +1,4 @@
+using MongoDB.Bson;
 using MongoDB.Driver;
 using RestService.Models;
 
@@ -9,7 +10,7 @@ namespace RestService.DAL
         {
             get
             {
-                return base._db.GetCollection<Restaurant>("restaurant");
+                return base._db.GetCollection<Restaurant>("restaurants");
             }
         }
 

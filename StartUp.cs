@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Bson.Serialization;
 using RestService.DAL;
+using RestService.Models;
 
 namespace RestService
 {
@@ -18,7 +20,8 @@ namespace RestService
             var configuration = builder.Build();
 
             this._appSettings = new AppSettings();
-            configuration.Bind(this._appSettings);            
+            configuration.Bind(this._appSettings);
+            BsonClassMap.RegisterClassMap<Restaurant>();            
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
