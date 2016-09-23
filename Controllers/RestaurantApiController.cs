@@ -8,11 +8,11 @@ using RestService.Models;
 namespace RestService.Controllers
 {
     [Route("api/restaurant")]
-    public sealed class PersonApiController : Controller
+    public sealed class RestaurantApiController : Controller
     {
         public readonly IDocumentService _documentService;
 
-        public PersonApiController(IDocumentService documentService)
+        public RestaurantApiController(IDocumentService documentService)
         {
             this._documentService = documentService;
         }
@@ -20,11 +20,12 @@ namespace RestService.Controllers
         [HttpGet()]
         public async Task<IList<Restaurant>> Get()
         {
-            return await this._documentService.GetRestaurants();
+            IList<Restaurant> results = await this._documentService.GetRestaurants();
+            return results;
         }
 
         [HttpGet("{id}")]
-        public async Task<Restaurant> Get(int id)
+        public async Task<Restaurant> Get(string id)
         {
             return await this._documentService.GetRestaurant(id);
         }

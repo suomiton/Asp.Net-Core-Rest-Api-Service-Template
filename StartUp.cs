@@ -10,7 +10,7 @@ namespace RestService
 {
     public class Startup
     {
-        private readonly AppSettings _appSettings;        
+        private readonly AppSettings _appSettings;
 
         public Startup(IHostingEnvironment env)
         {
@@ -21,8 +21,9 @@ namespace RestService
 
             this._appSettings = new AppSettings();
             configuration.Bind(this._appSettings);
-            BsonClassMap.RegisterClassMap<Restaurant>();            
-        }
+            
+            App_Start.BsonMappings.Map();
+        }        
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -32,11 +33,11 @@ namespace RestService
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();            
+            services.AddMvc();
             services.AddSingleton<AppSettings>(this._appSettings);
             services.AddSingleton<IDocumentContext, DocumentContext>();
             services.AddScoped<IDocumentCollection, DocumentCollection>();
-            services.AddScoped<IDocumentService, DocumentService>();            
+            services.AddScoped<IDocumentService, DocumentService>();
         }
     }
 }

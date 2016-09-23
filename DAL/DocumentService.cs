@@ -22,11 +22,10 @@ namespace RestService.DAL
             //await this._db.Restaurants.DeleteOneAsync(o => o.restaurant_id == id);
         }
 
-        public async Task<Restaurant> GetRestaurant(int id)
-        {
-            throw new NotImplementedException();
-            //return await this._db.Restaurants
-            //    .Find(o => o.restaurant_id == id).SingleOrDefaultAsync();
+        public async Task<Restaurant> GetRestaurant(string id)
+        {            
+            return await this._db.Restaurants
+                .Find(o => o.RestaurantId == id).SingleOrDefaultAsync();
         }
 
         public async Task<IList<Restaurant>> GetRestaurants()
