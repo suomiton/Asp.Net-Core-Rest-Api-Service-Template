@@ -2,7 +2,7 @@ using MongoDB.Driver;
 
 namespace RestService.DAL
 {
-    public interface IDocumentContext
+    public interface IMongoContext
     {
         IMongoDatabase Documents { get; }        
     }

@@ -4,7 +4,7 @@ using RestService.Models;
 
 namespace RestService.DAL
 {
-    public interface IDocumentCollection
+    public interface IDocumentRepository
     {
         IMongoCollection<Restaurant> Restaurants { get; }
     }

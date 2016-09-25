@@ -3,7 +3,7 @@ using MongoDB.Driver;
 
 namespace RestService.DAL
 {
-    public class DocumentContext : IDocumentContext, IDisposable
+    public class MongoContext : IMongoContext, IDisposable
     {
         private readonly AppSettings _appSettings;
         private readonly MongoClient _client;
@@ -18,7 +18,7 @@ namespace RestService.DAL
             }
         }
 
-        public DocumentContext(AppSettings settings)
+        public MongoContext(AppSettings settings)
         {
             this._appSettings = settings;            
             this._client = new MongoDB.Driver.MongoClient(settings.ConnectionString);            

@@ -2,9 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Bson.Serialization;
 using RestService.DAL;
-using RestService.Models;
 
 namespace RestService
 {
@@ -35,8 +33,8 @@ namespace RestService
         {
             services.AddMvc();
             services.AddSingleton<AppSettings>(this._appSettings);
-            services.AddSingleton<IDocumentContext, DocumentContext>();
-            services.AddScoped<IDocumentCollection, DocumentCollection>();
+            services.AddSingleton<IMongoContext, MongoContext>();
+            services.AddScoped<IDocumentRepository, DocumentRepository>();
             services.AddScoped<IDocumentService, DocumentService>();
         }
     }

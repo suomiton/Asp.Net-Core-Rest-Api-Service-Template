@@ -1,10 +1,9 @@
-using MongoDB.Bson;
 using MongoDB.Driver;
 using RestService.Models;
 
 namespace RestService.DAL
 {
-    public sealed class DocumentCollection : ContextBase, IDocumentCollection
+    public sealed class DocumentRepository : RepositoryBase, IDocumentRepository
     {        
         public IMongoCollection<Restaurant> Restaurants
         {
@@ -14,7 +13,7 @@ namespace RestService.DAL
             }
         }
 
-        public DocumentCollection (IDocumentContext context) : base(context.Documents)
+        public DocumentRepository (IMongoContext context) : base(context.Documents)
         {          
             ;
         }        
