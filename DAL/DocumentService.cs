@@ -16,34 +16,31 @@ namespace RestService.DAL
             this._db = db;
         }
 
-        public async Task DeleteRestaurant(int id)
+        public async Task<DeleteResult> DeleteRestaurant(string id)
         {
-            throw new NotImplementedException();
-            //await this._db.Restaurants.DeleteOneAsync(o => o.restaurant_id == id);
+            return await this._db.Restaurants.DeleteOneAsync(o => o.RestaurantId == id);
         }
 
         public async Task<Restaurant> GetRestaurant(string id)
-        {            
+        {
             return await this._db.Restaurants
                 .Find(o => o.RestaurantId == id).SingleOrDefaultAsync();
         }
 
         public async Task<IList<Restaurant>> GetRestaurants()
-        {            
+        {
             return await this._db.Restaurants.AsQueryable().ToListAsync();
         }
 
         public async Task InsertRestaurant(Restaurant restaurant)
         {
-            throw new NotImplementedException();
-            //await this._db.Restaurants.InsertOneAsync(restaurant);
+            await this._db.Restaurants.InsertOneAsync(restaurant);
         }
 
-        public async Task UpdateRestaurant(Restaurant restaurant)
+        public async Task<ReplaceOneResult> UpdateRestaurant(Restaurant updateObj, Restaurant restaurant)
         {
-            throw new NotImplementedException();
-            //var updateObj = await this.GetRestaurant(restaurant.restaurant_id);
-            //await this._db.Restaurants.UpdateOneAsync(updateObj.ToBsonDocument(), restaurant.ToBsonDocument());
+            restaurant.Id = updateObj.Id; // Ensure equality
+            return await this._db.Restaurants.ReplaceOneAsync(updateObj.ToBsonDocument(), restaurant);
         }
     }
 }

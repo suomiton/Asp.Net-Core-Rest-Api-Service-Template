@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 using RestService.DAL;
 using RestService.Models;
 
@@ -31,21 +31,30 @@ namespace RestService.Controllers
         }
 
         // POST: api/Entry
-        public async Task Post([FromBody]Restaurant value)
+        [HttpPost]
+        public async Task Post(Restaurant value)
         {
             await this._documentService.InsertRestaurant(value);
         }
 
         // PUT: api/Entry/5
-        public async Task Put(int id, [FromBody]Restaurant value)
+        [HttpPut("{id}")]
+        public async Task<ReplaceOneResult> Put(string id, Restaurant value)
         {
-            await this._documentService.UpdateRestaurant(value);
+            Restaurant updateObj = await this._documentService.GetRestaurant(id);
+            if(updateObj == null) {                
+                await this._documentService.InsertRestaurant(value);
+                return null;                
+            } else {                
+                return await this._documentService.UpdateRestaurant(updateObj, value);
+            }                        
         }
 
         // DELETE: api/Entry/5
-        public async Task Delete(int id)
+        [HttpDelete("{id}")]
+        public async Task<DeleteResult> Delete(string id)
         {
-            await this._documentService.DeleteRestaurant(id);
+            return await this._documentService.DeleteRestaurant(id);
         }
     }
 }
