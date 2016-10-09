@@ -6,9 +6,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/Asp.Net-Core-Rest-Api-Service-Template.dll",
+            "program": "${workspaceRoot}/src/RestService.Web/bin/Debug/netcoreapp1.0/Asp.Net-Core-Rest-Api-Service-Template.dll",
             "args": [],
-            "cwd": "${workspaceRoot}",
+            "cwd": "${workspaceRoot}/src/RestService.Web",
             "externalConsole": false,
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart"

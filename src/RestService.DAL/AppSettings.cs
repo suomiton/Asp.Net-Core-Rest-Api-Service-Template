@@ -1,4 +1,4 @@
-namespace RestService
+namespace RestService.DAL
 {
     public sealed class AppSettings
     {

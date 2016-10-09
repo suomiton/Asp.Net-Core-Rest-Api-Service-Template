@@ -1,6 +1,6 @@
 using MongoDB.Driver;
 
-namespace RestService.DAL
+namespace RestService.DAL.Context
 {
     public interface IMongoContext
     {

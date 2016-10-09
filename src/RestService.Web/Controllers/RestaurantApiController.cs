@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
-using RestService.DAL;
-using RestService.Models;
+using RestService.DAL.Services;
+using RestService.DAL.Models;
 
 namespace RestService.Controllers
 {

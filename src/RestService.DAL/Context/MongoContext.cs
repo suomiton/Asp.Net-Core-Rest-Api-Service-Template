@@ -1,7 +1,7 @@
 using System;
 using MongoDB.Driver;
 
-namespace RestService.DAL
+namespace RestService.DAL.Context
 {
     public class MongoContext : IMongoContext, IDisposable
     {

@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestService.DAL;
+using RestService.DAL.Context;
+using RestService.DAL.Repositories;
+using RestService.DAL.Services;
 
 namespace RestService
 {
@@ -20,7 +23,7 @@ namespace RestService
             this._appSettings = new AppSettings();
             configuration.Bind(this._appSettings);
             
-            App_Start.BsonMappings.Map();
+            RestService.DAL.App_Start.BsonMappings.Map();            
         }        
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

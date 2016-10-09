@@ -1,8 +1,8 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
-using RestService.Models;
+using RestService.DAL.Models;
 
-namespace RestService.DAL
+namespace RestService.DAL.Repositories
 {
     public interface IDocumentRepository
     {

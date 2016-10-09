@@ -3445,6 +3445,17 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "RestService.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "MongoDB.Bson": "2.3.0-rc1",
+          "MongoDB.Driver": "2.3.0-rc1",
+          "MongoDB.Driver.Core": "2.3.0-rc1",
+          "NETStandard.Library": "1.6.0",
+          "Newtonsoft.Json": "9.0.1"
+        }
       }
     }
   },
@@ -9312,6 +9323,10 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "RestService.DAL/1.0.0": {
+      "type": "project",
+      "path": "../RestService.DAL/project.json"
     }
   },
   "projectFileDependencyGroups": {
@@ -9325,9 +9340,7 @@
       "Microsoft.Extensions.Configuration.Json >= 1.0.0",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
       "Microsoft.NETCore.App >= 1.0.0",
-      "MongoDB.Bson >= 2.3.0-rc1",
-      "MongoDB.Driver >= 2.3.0-rc1",
-      "MongoDB.Driver.Core >= 2.3.0-rc1"
+      "RestService.DAL"
     ]
   },
   "tools": {},

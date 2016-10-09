@@ -4,7 +4,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
-namespace RestService.Models
+namespace RestService.DAL.Models
 {
     public class Restaurant
     {

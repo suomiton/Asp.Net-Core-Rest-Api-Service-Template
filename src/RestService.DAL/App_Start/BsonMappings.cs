@@ -1,8 +1,8 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
-using RestService.Models;
+using RestService.DAL.Models;
 
-namespace RestService.App_Start
+namespace RestService.DAL.App_Start
 {
     public sealed class BsonMappings
     {        

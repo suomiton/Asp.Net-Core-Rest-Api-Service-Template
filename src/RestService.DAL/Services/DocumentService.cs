@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using RestService.Models;
+using RestService.DAL.Models;
+using RestService.DAL.Repositories;
 
-namespace RestService.DAL
+namespace RestService.DAL.Services
 {
     public sealed class DocumentService : IDocumentService
     {
